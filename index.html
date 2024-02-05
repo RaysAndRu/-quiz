@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Опросник "Кто ты из Марвел?"</h1>
+
+        <h3>Вопрос 1:</h3>
+        <p>Какие суперсилы ты предпочитаешь?</p>
+        <div class="options">
+            <label><input type="radio" name="question1" value="super-strength">Сверхсила</label>
+            <label><input type="radio" name="question1" value="telepathy">Телепатия</label>
+            <label><input type="radio" name="question1" value="flight">Полет</label>
+        </div>
+
+        <h3>Вопрос 2:</h3>
+        <p>Какое оружие ты предпочитаешь использовать?</p>
+        <div class="options">
+            <label><input type="radio" name="question2" value="hammer">Молот Тора</label>
+            <label><input type="radio" name="question2" value="shield">Щит Капитана Америки</label>
+            <label><input type="radio" name="question2" value="bow">Лук Хоукая</label>
+        </div>
+
+        <h3>Вопрос 3:</h3>
+        <p>Какой из этих командных центров ты предпочитаешь?</p>
+        <div class="options">
+            <label><input type="radio" name="question3" value="stark-tower">Башня Старка</label>
+            <label><input type="radio" name="question3" value="xavier-institute">Институт Ксавьера</label>
+            <label><input type="radio" name="question3" value="avengers-hq">Штаб-квартира Мстителей</label>
+        </div>
+
+        <h3>Вопрос 4:</h3>
+        <p>Какое из этих сверхспособностей ты бы хотел иметь?</p>
+        <div class="options">
+            <label><input type="radio" name="question4" value="regeneration">Регенерация</label>
+            <label><input type="radio" name="question4" value="time-travel">Путешествие во времени</label>
+            <label><input type="radio" name="question4" value="invisibility">Невидимость</label>
+        </div>
+
+        <h3>Вопрос 5:</h3>
+        <p>Какую моральную сторону предпочитаешь?</p>
+        <div class="options">
+            <label><input type="radio" name="question5" value="good">Добро</label>
+            <label><input type="radio" name="question5" value="neutral">Нейтральное</label>
+            <label><input type="radio" name="question5" value="dark">Тьма</label>
+        </div>
+
+        <button onclick="getResult()">Показать результат</button>
+    </div>
+
+    <script>
+        function getResult() {
+            const answers = {
+                question1: document.querySelector('input[name="question1"]:checked').value,
+                question2: document.querySelector('input[name="question2"]:checked').value,
+                question3: document.querySelector('input[name="question3"]:checked').value,
+                question4: document.querySelector('input[name="question4"]:checked').value,
+                question5: document.querySelector('input[name="question5"]:checked').value,
+            };
+
+            let result = "";
+
+            if (
+                answers.question1 === "super-strength" &&
+                answers.question2 === "hammer" &&
+                answers.question3 === "stark-tower" &&
+                answers.question4 === "regeneration" &&
+                answers.question5 === "good"
+            ) {
+                result = "Ты Тор!";
+            } else if (
+                answers.question1 === "telepathy" &&
+                answers.question2 === "shield" &&
+                answers.question3 === "xavier-institute" &&
+                answers.question4 === "time-travel" &&
+                answers.question5 === "neutral"
+            ) {
+                result = "Ты Доктор Стрендж!";
+            } else if (
+                answers.question1 === "flight" &&
+                answers.question2 === "bow" &&
+                answers.question3 === "avengers-hq" &&
+                answers.question4 === "invisibility" &&
+                answers.question5 === "dark"
+            ) {
+                result = "Ты Черная Вдова!";
+            } else if (
+                answers.question1 === "super-strength" &&
+                answers.question2 === "hammer" &&
+                answers.question3 === "stark-tower" &&
+                answers.question4 === "time-travel" &&
+                answers.question5 === "good"
+            ) {
+                result = "Ты Капитан Америка!";
+            } else if (
+                answers.question1 === "telepathy" &&
+                answers.question2 === "shield" &&
+                answers.question3 === "xavier-institute" &&
+                answers.question4 === "regeneration" &&
+                answers.question5 === "neutral"
+            ) {
+                result = "Ты Профессор Икс!";
+            } else if (
+                answers.question1 === "flight" &&
+                answers.question2 === "bow" &&
+                answers.question3 === "avengers-hq" &&
+                answers.question4 === "invisibility" &&
+                answers.question5 === "good"
+            ) {
+                result = "Ты Халк!";
+            } else {
+                result = "Ты кто-то другой из Марвел!";
+            }
+
+            alert(result);
+        }
+    </script>
+	
+</body>
+</html>
